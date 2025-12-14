@@ -1,0 +1,32 @@
+{
+  "frameId": "frame_0000",
+  "timestamp": 1000,
+  "imagePath": "color.jpg",
+  "depthPath": "depth.bin",
+  "intrinsics": {
+    "imageWidth": 640,
+    "imageHeight": 480,
+    "fx": 500.0,
+    "fy": 500.0,
+    "cx": 320.0,
+    "cy": 240.0
+  },
+  "pose": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ]
+}

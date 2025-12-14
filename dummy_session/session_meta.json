@@ -1,0 +1,104 @@
+{
+  "sessionId": "dummy_123",
+  "animalId": "test_animal",
+  "notes": "Generated for testing",
+  "createdAt": "2025-12-05T12:00:00.000",
+  "frames": [
+    {
+      "frameId": "frame_0000",
+      "timestamp": 1000,
+      "imagePath": "color.jpg",
+      "depthPath": "depth.bin",
+      "intrinsics": {
+        "imageWidth": 640,
+        "imageHeight": 480,
+        "fx": 500.0,
+        "fy": 500.0,
+        "cx": 320.0,
+        "cy": 240.0
+      },
+      "pose": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frameId": "frame_0001",
+      "timestamp": 1100,
+      "imagePath": "color.jpg",
+      "depthPath": "depth.bin",
+      "intrinsics": {
+        "imageWidth": 640,
+        "imageHeight": 480,
+        "fx": 500.0,
+        "fy": 500.0,
+        "cx": 320.0,
+        "cy": 240.0
+      },
+      "pose": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.1,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "frameId": "frame_0002",
+      "timestamp": 1200,
+      "imagePath": "color.jpg",
+      "depthPath": "depth.bin",
+      "intrinsics": {
+        "imageWidth": 640,
+        "imageHeight": 480,
+        "fx": 500.0,
+        "fy": 500.0,
+        "cx": 320.0,
+        "cy": 240.0
+      },
+      "pose": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.2,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ]
+}

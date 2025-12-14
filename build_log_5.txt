@@ -1,0 +1,50 @@
+Resolving dependencies...
+Downloading packages...
+  characters 1.4.0 (1.4.1 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  test_api 0.7.7 (0.7.8 available)
+Got dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleRelease'...                        
+Error: Couldn't resolve the package 'path_provider' in 'package:path_provider/path_provider.dart'.
+lib/services/session_storage.dart:3:8: Error: Not found: 'package:path_provider/path_provider.dart'
+import 'package:path_provider/path_provider.dart';
+       ^
+lib/services/session_storage.dart:11:23: Error: The method 'getExternalStorageDirectory' isn't defined for the type 'SessionStorage'.
+ - 'SessionStorage' is from 'package:vetra_depth_recorder/services/session_storage.dart' ('lib/services/session_storage.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'getExternalStorageDirectory'.
+    final dir = await getExternalStorageDirectory(); 
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unhandled exception:
+FileSystemException(uri=org-dartlang-untranslatable-uri:package%3Apath_provider%2Fpath_provider.dart; message=StandardFileSystem only supports file:* and data:* URIs)
+#0      StandardFileSystem.entityForUri (package:front_end/src/api_prototype/standard_file_system.dart:45)
+#1      asFileUri (package:vm/kernel_front_end.dart:1008)
+#2      writeDepfile (package:vm/kernel_front_end.dart:1171)
+<asynchronous suspension>
+#3      FrontendCompiler.compile (package:frontend_server/frontend_server.dart:738)
+<asynchronous suspension>
+#4      starter (package:frontend_server/starter.dart:102)
+<asynchronous suspension>
+#5      main (file:///C:/b/s/w/ir/x/w/sdk/pkg/frontend_server/bin/frontend_server_starter.dart:13)
+<asynchronous suspension>
+
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildRelease'.
+> Process 'command 'E:\flutter\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 6s
+Running Gradle task 'assembleRelease'...                            6.8s
+Gradle task assembleRelease failed with exit code 1
