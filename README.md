@@ -15,7 +15,7 @@ For each capture session:
 4. Saves frames under `/Android/data/<package>/files/VETRA_DATA/session_<id>/frame_NNNN/`.
 5. Exports the session as a ZIP via `share_plus`.
 
-A sample session (`dummy_session/`) is included so the export and viewer flow can be tested without ARCore.
+A sample session ([`dummy_session/`](dummy_session/)) shows the exported on-disk format (three frames with `color.jpg`, `depth.bin`, `meta.json`).
 
 ## Architecture
 
@@ -66,7 +66,8 @@ vetra-depth-recorder/
 ├── depth.md                          # Detailed ARCore Depth API technical guide
 ├── dummy_session/                    # Example session data for testing
 ├── pubspec.yaml
-└── analysis_options.yaml
+├── analysis_options.yaml
+└── LICENSE
 ```
 
 ## Setup
@@ -93,10 +94,28 @@ ARCore must be installed/available on the test device. The list of supported dev
 
 ## Documentation
 
-- `depth.md` — full technical writeup of the ARCore Depth API integration (session config, image acquisition, stride-aware buffer reads, intrinsics scaling, sampling cadence, common pitfalls).
-- `steps/step-2.md`..`steps/step-5.md` — incremental integration walkthrough.
+- [`depth.md`](depth.md) — full technical writeup of the ARCore Depth API integration (session config, image acquisition, stride-aware buffer reads, intrinsics scaling, sampling cadence, common pitfalls).
+- [`steps/step-2.md`](steps/step-2.md) … [`steps/step-5.md`](steps/step-5.md) — incremental integration walkthrough.
 
-## Related
+## VETRA project map
 
-- [vetra-main-app-latest-v3](https://github.com/rupeshbharambe24/vetra-main-app-latest-v3) — main VETRA Flutter app (the agents.md there references this prototype).
-- [VETRA---App](https://github.com/rupeshbharambe24/VETRA---App) — backend FastAPI server with the YOLO trait-extraction models.
+VETRA (SIH 2025, Grand Finale Top 5) is split across several repositories. ML work evolved v1.1 → v2.0 → v2.2 → v3.0; the apps below consume or capture data for those models.
+
+| Repository | What it is | Stack | Status |
+|---|---|---|---|
+| [VETRA-v1.1](https://github.com/rupeshbharambe24/VETRA-v1.1) | First ML experiment: 6-keypoint YOLO pose on cow images + regression models mapping keypoint distances to body measurements (cm) | Python, YOLOv8-pose, scikit-learn | Archived (ML) |
+| [VETRA-v2.0](https://github.com/rupeshbharambe24/VETRA-v2.0) | Separate side- and back-view YOLOv8-pose keypoint models, focal-length scaling, measurement-extraction notebooks | Python, Ultralytics | Archived (ML) |
+| [VETRA-v2.2-with-app](https://github.com/rupeshbharambe24/VETRA-v2.2-with-app) | v2 models wrapped in a first FastAPI backend + React UI (`/api/v1/process-image`) | Python, FastAPI, React | Archived (ML + app) |
+| [VETRA-v3.0](https://github.com/rupeshbharambe24/VETRA-v3.0) | Final training: side (16 kp), back (10 kp) and udder-bottom (8 kp) YOLOv8n-pose models, ArUco scaling, dataset tooling | Python, Ultralytics, PyTorch | Final models |
+| [VETRA---App](https://github.com/rupeshbharambe24/VETRA---App) | Final system: FastAPI backend serving the v3.0 pose models + udder U-Net/ResNet18, NDDB-style trait scoring, React web UI | FastAPI, PyTorch, React + Vite | Final (SIH 2025 finale) |
+| [vetra-main-app-latest-v3](https://github.com/rupeshbharambe24/vetra-main-app-latest-v3) | Flutter field app: capture protocol, offline SQLite records, PDF reports (not yet wired to the analysis API) | Flutter, Riverpod, SQLite | Prototype |
+| **[vetra-depth-recorder-latest-v3](https://github.com/rupeshbharambe24/vetra-depth-recorder-latest-v3)** (this repo) | RGB + ARCore depth capture with intrinsics, pose and ZIP export | Flutter, Kotlin, ARCore | Prototype |
+| [VETRA---Depth-Recorder](https://github.com/rupeshbharambe24/VETRA---Depth-Recorder) | Earlier capture app: RGB frames + phone-sensor pose metadata (no real depth) | Expo / React Native, TypeScript | Superseded |
+| [vetra-pashu-scan](https://github.com/rupeshbharambe24/vetra-pashu-scan) | Early Lovable-generated PWA UI; Supabase edge functions return mock measurements | Vite, React, Supabase | Superseded (UI prototype) |
+| [pashudhan-ui](https://github.com/rupeshbharambe24/pashudhan-ui) | Fork of a teammate's Lovable UI prototype (landing page + mock prediction page) | Vite, React | Fork |
+
+This repository supersedes the earlier Expo-based [VETRA---Depth-Recorder](https://github.com/rupeshbharambe24/VETRA---Depth-Recorder), which could not access real depth.
+
+## License
+
+[MIT](LICENSE) © 2025 Rupesh Bharambe
